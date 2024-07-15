@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AltverZ Levels and Packs</title>
+    <link href="../style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="icone.png">
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load levels for AltverZ mod on page load
+            loadLevels('A');
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+
+    <br><br><br>
+    <nav>
+        <a href="alt.html" onclick="loadLevels('A')">AltverZ Levels</a>
+        <a href="ref.html">Reflourished Levels</a>
+        <a href="index.html">Main</a>
+        <a href="new.html" id="new">Post a Level / pack</a>
+    </nav><br>
+    <img src="iconeC.png" width="300px" />
+    <br><br><br>
+    <div class="box">
+        <p><h1>There is Mod has been discontinued</h1></p>
+        <audio id="audioPlayer" autoplay loop>
+            Your browser does not support the audio element.
+        </audio>
+        <div class="grid-container" id="levelsContainer">
+            <!-- JSON data will be dynamically inserted here -->
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+        <p>&copy; 2024 Samine Gamme - Slimmy Sinisty and company</p>
+        <p>
+            <a href="mailto:slimmysinisty@gmail.com">Contact</a> |
+        </p>
+        <p>
+            <a href="https://www.youtube.com/channel/UCrUknMgIGaPBufJ7oTsSnUA" target="_blank">Youtube Samine</a> |
+            <a href="https://www.youtube.com/watch?v=Wma1qgqL1yI&t=44s" target="_blank">How to make You're own level</a> |
+            <a href="https://docs.google.com/spreadsheets/d/1OeY3FcGfOSOCO6voz6VolK0lfSCX9ytsXbCdihECrk0/edit#gid=0" target="_blank">ELM</a>
+        </p>
+    </footer>
+
+    <script>
+        function loadLevels(modId) {
+            //fetchAndProcessLevels(modId);
+        }
+    </script>
+</body>
+
+</html>

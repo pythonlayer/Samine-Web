@@ -1,0 +1,707 @@
+{"#comment": "futuristic showdown | ELM: Ver-10.1 [RFL v1.1.2]",
+"#zombies": "feastivus, stpatrick_armor1, summer_bug_armor2, spring_armor4_blue, feastivus_troglobite, carnie_firebreather, balloni@, lunar_bandit, hero_sonic@, pharaoh_veteran@, hero_armor1, hero_disco_mech, future_armor4, future_jetpack, disco_mech, future_imp",
+"objects": [{
+    "objclass": "LevelDefinition",
+    "objdata": {
+    "StartingSun": 50,
+    "Description": "Custom Level",
+    "FirstRewardParam": "moneybag",
+    "NormalPresentTable": "egypt_normal_01",
+    "ShinyPresentTable": "egypt_shiny_01",
+    "Loot": "RTID(DefaultLoot@LevelModules)",
+    "ResourceGroupNames": [
+        "DelayLoad_Background_Beach",
+        "DelayLoad_Background_Beach_Compressed",
+        "Tombstone_Dark_Special",
+        "Tombstone_Dark_Effects"
+    ],
+    "Modules": [
+        "RTID(OffScreenZombiesCoinOverride@LevelModules)",
+        "RTID(HolidayMowers@LevelModules)",
+        "RTID(StandardIntro@LevelModules)",
+        "RTID(GI@CurrentLevel)",
+        "RTID(HolidayDrinksHeroes@LevelModules)",
+        "RTID(HolidayDrinksHalloween@LevelModules)",
+        "RTID(SeedBank@CurrentLevel)",
+        "RTID(DefaultSunDropper@LevelModules)",
+        "RTID(Escalation@CurrentLevel)",
+        "RTID(NewWaves@CurrentLevel)",
+        "RTID(ZombiesDeadWinCon@LevelModules)",
+        "RTID(DefaultZombieWinCondition@LevelModules)"
+    ],
+    "Name": "futuristic showdown",
+    "StageModule": "RTID(FutureStage@LevelModules)",
+    "MusicType": "MiniGame_A"
+}},
+{"aliases": ["SeedBank"],
+"objclass": "SeedBankProperties",
+"objdata": {
+    "PresetPlantList": [
+        
+    ],
+    "PlantIncludeList": [
+        
+    ],
+    "PlantExcludeList": [
+        
+    ],
+    "SelectionMethod": "chooser"
+}},
+{"aliases":["GI"],
+"objclass":"InitialGridItemProperties",
+"objdata":{
+    "InitialGridItemPlacements": [
+        {"GridX": 4, "GridY": 1, "TypeName":"gravestone_future"},
+        {"GridX": 0, "GridY": 1, "TypeName":"powertile_gamma"},
+        {"GridX": 4, "GridY": 1, "TypeName":"powertile_beta"},
+        {"GridX": 2, "GridY": 2, "TypeName":"gravestone_future"},
+        {"GridX": 4, "GridY": 3, "TypeName":"powertile_beta"},
+        {"GridX": 1, "GridY": 3, "TypeName":"powertile_gamma"}
+    ]
+}},
+{"aliases": ["Escalation"],
+"objclass": "LevelEscalationModuleProperties",
+"objdata": {
+    "FlagCount": 1,
+    "WavesPerFlag": 8,
+    "PlantfoodToSpawnCount": 0,
+    "StartingPoints": 0,
+    "PointIncrementPerWave": 0,
+    "WaveManagerProps": "RTID(WaveManager@CurrentLevel)",
+    "ZombiePool": [
+        "RTID(tutorial@ZombieTypes)"
+    ]
+}},
+{"aliases": ["NewWaves"],
+"objclass": "WaveManagerModuleProperties",
+"objdata": {}
+},
+{"aliases": ["WaveManager"],
+"objclass": "WaveManagerProperties",
+"objdata": {
+    "FlagWaveInterval": 8,
+    "FlagWaveVeteranOverrideTypes": [ 1 ],
+    "WaveCount": 15,
+    "SuppressFlagZombie": false,
+    "MinNextWaveHealthPercentage": 0.5,
+    "MaxNextWaveHealthPercentage": 0.75,
+    "Waves": [
+        ["RTID(Wave1@.)"],
+        ["RTID(Wave2@.)"],
+        ["RTID(Wave3@.)"],
+        ["RTID(Wave4@.)", "RTID(SpidRain4_future_imp@.)"],
+        ["RTID(Wave5@.)"],
+        ["RTID(Wave6@.)"],
+        ["RTID(Wave7@.)"],
+        ["RTID(Wave8@.)"],
+        ["RTID(Wave9@.)"],
+        ["RTID(Wave10@.)"],
+        ["RTID(Wave11@.)"],
+        ["RTID(Wave12@.)"],
+        ["RTID(Wave13@.)", "RTID(SpidRain13_future_imp@.)"],
+        ["RTID(Wave14@.)"],
+        ["RTID(Wave15@.)"]
+    ]
+}},
+{"aliases":["Wave1"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Row": "1", "Type": "RTID(stpatrick_armor1@ZombieTypes)"},
+        {"Row": "3", "Type": "RTID(balloni@CurrentLevel)"}
+    ]
+}},
+
+{"aliases":["Wave2"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Type": "RTID(future_jetpack@ZombieTypes)"},
+        {"Type": "RTID(stpatrick_armor1@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave3"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Row": "1", "Type": "RTID(future_jetpack@ZombieTypes)"},
+        {"Row": "3", "Type": "RTID(feastivus@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave4"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Row": "2", "Type": "RTID(stpatrick_armor1@ZombieTypes)"},
+        {"Row": "4", "Type": "RTID(lunar_bandit@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave5"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 1,
+    "Zombies": [
+        {"Type": "RTID(lunar_bandit@ZombieTypes)"},
+        {"Type": "RTID(lunar_bandit@ZombieTypes)"},
+        {"Type": "RTID(lunar_bandit@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave6"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 1,
+    "Zombies": [
+        {"Type": "RTID(feastivus@ZombieTypes)"},
+        {"Type": "RTID(carnie_firebreather@ZombieTypes)"},
+        {"Type": "RTID(feastivus@ZombieTypes)"},
+        {"Type": "RTID(disco_mech@ZombieTypes)"},
+        {"Type": "RTID(feastivus@ZombieTypes)"},
+        {"Type": "RTID(feastivus_troglobite@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave7"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 1,
+    "Zombies": [
+        {"Type": "RTID(feastivus_troglobite@ZombieTypes)"},
+        {"Type": "RTID(spring_armor4_blue@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave8"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 1,
+    "Zombies": [
+        {"Row": "3", "Type": "RTID(hero_armor1@ZombieTypes)"},
+        {"Row": "5", "Type": "RTID(lunar_bandit@ZombieTypes)"},
+        {"Row": "1", "Type": "RTID(balloni@CurrentLevel)"},
+        {"Row": "2", "Type": "RTID(hero_sonic@CurrentLevel)"},
+        {"Row": "3", "Type": "RTID(pharaoh_veteran@CurrentLevel)"},
+        {"Row": "4", "Type": "RTID(hero_sonic@CurrentLevel)"},
+        {"Row": "5", "Type": "RTID(hero_disco_mech@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave9"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Row": "3", "Type": "RTID(future_jetpack@ZombieTypes)"},
+        {"Row": "1", "Type": "RTID(disco_mech@ZombieTypes)"},
+        {"Row": "2", "Type": "RTID(summer_bug_armor2@ZombieTypes)"},
+        {"Row": "4", "Type": "RTID(future_jetpack@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave10"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Type": "RTID(future_jetpack@ZombieTypes)"},
+        {"Type": "RTID(future_armor4@ZombieTypes)"},
+        {"Type": "RTID(hero_sonic@CurrentLevel)"},
+        {"Type": "RTID(hero_armor1@ZombieTypes)"},
+        {"Type": "RTID(hero_disco_mech@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave11"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Row": "2", "Type": "RTID(feastivus@ZombieTypes)"},
+        {"Row": "5", "Type": "RTID(spring_armor4_blue@ZombieTypes)"},
+        {"Row": "1", "Type": "RTID(carnie_firebreather@ZombieTypes)"},
+        {"Row": "3", "Type": "RTID(future_imp@ZombieTypes)"},
+        {"Row": "4", "Type": "RTID(future_imp@ZombieTypes)"},
+        {"Row": "5", "Type": "RTID(hero_armor1@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave12"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Row": "1", "Type": "RTID(future_jetpack@ZombieTypes)"},
+        {"Row": "3", "Type": "RTID(future_jetpack@ZombieTypes)"},
+        {"Row": "5", "Type": "RTID(future_jetpack@ZombieTypes)"},
+        {"Row": "2", "Type": "RTID(feastivus_troglobite@ZombieTypes)"},
+        {"Row": "4", "Type": "RTID(feastivus@ZombieTypes)"},
+        {"Row": "5", "Type": "RTID(feastivus@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave13"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Row": "4", "Type": "RTID(summer_bug_armor2@ZombieTypes)"},
+        {"Row": "1", "Type": "RTID(feastivus@ZombieTypes)"},
+        {"Row": "3", "Type": "RTID(stpatrick_armor1@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave14"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Row": "1", "Type": "RTID(hero_armor1@ZombieTypes)"},
+        {"Row": "2", "Type": "RTID(feastivus@ZombieTypes)"},
+        {"Row": "3", "Type": "RTID(balloni@CurrentLevel)"},
+        {"Row": "4", "Type": "RTID(carnie_firebreather@ZombieTypes)"},
+        {"Row": "5", "Type": "RTID(lunar_bandit@ZombieTypes)"}
+    ]
+}},
+
+{"aliases":["Wave15"],
+"objclass": "SpawnZombiesJitteredWaveActionProps",
+"objdata":{
+    "AdditionalPlantfood": 0,
+    "Zombies": [
+        {"Row": "1", "Type": "RTID(pharaoh_veteran@CurrentLevel)"},
+        {"Row": "2", "Type": "RTID(future_jetpack@ZombieTypes)"},
+        {"Row": "3", "Type": "RTID(carnie_firebreather@ZombieTypes)"},
+        {"Row": "4", "Type": "RTID(disco_mech@ZombieTypes)"}
+    ]
+}},
+{"aliases":["SpidRain4_future_imp"],
+"objclass": "SpiderRainZombieSpawnerProps",
+"objdata": {
+    "ColumnStart": 5,
+    "ColumnEnd": 7,
+    "GroupSize": 1,
+    "TimeBetweenGroups": "0.5",
+    "ZombieFallTime": "2",
+    "SpiderZombieName": "future_imp",
+    "SpiderCount": 3,
+    "WaveStartMessage": "Bot Swarm!"
+}},
+{"aliases":["SpidRain13_future_imp"],
+"objclass": "SpiderRainZombieSpawnerProps",
+"objdata": {
+    "ColumnStart": 5,
+    "ColumnEnd": 7,
+    "GroupSize": 1,
+    "TimeBetweenGroups": "1",
+    "ZombieFallTime": "2",
+    "SpiderZombieName": "future_imp",
+    "SpiderCount": 15,
+    "WaveStartMessage": "Bot Swarm!"
+}},
+{
+                        "objclass": "ZombieType",
+                        "aliases": [
+                                "balloni"
+                        ],
+                        "objdata": {
+                                "TypeName": "modern_balloon",
+                                "ZombieClass": "ZombieModernBalloon",
+                                "Properties": "RTID(ZombieModernBalloonDefault@CurrentLevel)",
+                                "ResourceGroups": [
+                                        "ZombieModernBalloonGroup",
+                                        "ZombieLostCityBasicGroup",
+                                        "ZombieLostCityBugEffectsGroup"
+                                ],
+                                "AudioGroups": [
+                                        "ZombieModernBalloonAudio"
+                                ],
+                                "AnimRigClass": "ZombieAnimRig_ModernBalloon",
+                                "PopAnim": "POPANIM_ZOMBIE_ZOMBIE_MODERN_BALLOON",
+                                "HomeWorld": "modern",
+                                "Placeable": true
+                        }
+                },
+{
+                        "objclass": "ZombieType",
+                        "aliases": [
+                                "hero_sonic"
+                        ],
+                        "objdata": {
+                                "TypeName": "hero_electricboogaloo",
+                                "ZombieClass": "ZombieBasic",
+                                "Properties": "RTID(ZombieHeroElectricBoogaloo@CurrentLevel)",
+                                "ResourceGroups": [
+                                        "ZombieHeroElectricBoogalooGroup"
+                                ],
+                                "AudioGroups": [
+                                        "ZombieBeachSnorkelAudio"
+                                ],
+                                "AnimRigClass": "ZombieAnimRig_Tutorial",
+                                "PopAnim": "POPANIM_ZOMBIE_ZOMBIE_HEROES_ELECTRICBOOGALOO",
+                                "HomeWorld": "tutorial"
+                        }
+                },
+{
+                        "objclass": "ZombieType",
+                        "aliases": [
+                                "pharaoh_veteran"
+                        ],
+                        "objdata": {
+                                "TypeName": "pharaoh",
+                                "ZombieClass": "ZombiePharaoh",
+                                "Properties": "RTID(ZombiePharaohDefault@CurrentLevel)",
+                                "ResourceGroups": [
+                                        "ZombieEgyptPharaohGroup",
+                                        "ZombieEgyptPharaohEffectsGroup"
+                                ],
+                                "AudioGroups": [
+                                        "ZombieEgyptPharaohAudio"
+                                ],
+                                "AnimRigClass": "ZombieAnimRig_Sarcophagus",
+                                "PopAnim": "POPANIM_ZOMBIE_ZOMBIE_EGYPT_SARCOPHAGUS",
+                                "HomeWorld": "egypt"
+                        }
+                },
+                {
+                        "objclass": "ZombieType",
+                        "aliases": [
+                                "ra"
+                        ],
+                        "objdata": {
+                                "TypeName": "ra",
+                                "ZombieClass": "ZombieRa",
+                                "Properties": "RTID(ZombieRaDefault@ZombieProperties)",
+                                "ResourceGroups": [
+                                        "ZombieEgyptRaGroup"
+                                ],
+                                "AudioGroups": [
+                                        "ZombieEgyptRaAudio"
+                                ],
+                                "AnimRigClass": "ZombieAnimRig_Ra",
+                                "PopAnim": "POPANIM_ZOMBIE_ZOMBIE_EGYPT_RA",
+                                "HomeWorld": "egypt"
+                        }
+                },
+                {
+                        "aliases": [
+                                "ZombieModernBalloonDefault"
+                        ],
+                        "objclass": "ZombiePropertySheet",
+                        "objdata": {
+                                "#comment": "ShadowOffset is synced to the shadow of the basic that is dropped.  Please maintain sync.",
+                                "ArmDropFraction": -1,
+                                "ArtCenter": {
+                                        "x": 100,
+                                        "y": 130
+                                },
+                                "AttackRect": {
+                                        "mHeight": 125,
+                                        "mWidth": 20,
+                                        "mX": 15,
+                                        "mY": 0
+                                },
+                                "CanSpawnPlantFood": true,
+                                "Cost": 150,
+                                "EatDPS": 100,
+                                "GroundTrackName": "ground_swatch",
+                                "HitRect": {
+                                        "mHeight": 125,
+                                        "mWidth": 42,
+                                        "mX": 0,
+                                        "mY": 10
+                                },
+                                "Hitpoints": 2500,
+                                "NormalDeathWhenMowed": true,
+                                "ScaledProps": [
+                                        {
+                                                "Arg1": 1.3,
+                                                "Arg2": 0.05,
+                                                "Formula": "standard",
+                                                "Key": "Hitpoints"
+                                        },
+                                        {
+                                                "Arg1": 1.3,
+                                                "Arg2": 0.05,
+                                                "Formula": "standard",
+                                                "Key": "EatDPS"
+                                        },
+                                        {
+                                                "Formula": "constant",
+                                                "Key": "Speed"
+                                        },
+                                        {
+                                                "Formula": "constant",
+                                                "Key": "WavePointCost"
+                                        }
+                                ],
+                                "ShadowOffset": {
+                                        "x": -6,
+                                        "y": -4,
+                                        "z": 1.2
+                                },
+                                "SkipHeadDropState": true,
+                                "Speed": 0.05,
+                                "WavePointCost": 400,
+                                "Weight": 3000,
+                                "ZombieArmorProps": [
+                                        "RTID(BalloonDefault@ArmorTypes)"
+                                ],
+                                "ZombieStats": [
+                                        {
+                                                "Type": "toughness",
+                                                "Value": "toughness4"
+                                        },
+                                        {
+                                                "Type": "speed",
+                                                "Value": "speed4"
+                                        }
+                                ]
+                        }
+                },
+{
+    "aliases": [
+        "ZombieHeroElectricBoogaloo"
+    ],
+    "objclass": "ZombieBeachSnorkelProps",
+    "objdata": {
+        "ArtCenter": {
+            "x": 90,
+            "y": 125
+        },
+        "AttackRect": {
+            "mHeight": 105,
+            "mWidth": 20,
+            "mX": 15,
+            "mY": 0
+        },
+        "CanSpawnPlantFood": true,
+        "Cost": 150,
+        "DamageWhileSubmerged": {
+            "List": [
+                "banana",
+                "ghostpepper",
+                "homingthistle",
+                "chomper",
+                "jalapeno",
+                "cherry_bomb",
+                "squash",
+                "iceburg",
+                "lavaguava",
+                "toadstool",
+                "strawburst",
+                "electricblueberry",
+                "grapeshot",
+                "jackolantern",
+                "cabbagepult",
+                "akee",
+                "melonpult",
+                "kernelpult",
+                "wintermelon",
+                "banana",
+                "homingthistle",
+                "sapfling",
+                "pepperpult",
+                "sporeshroom",
+                "shrinkingviolet",
+                "bloominghearts",
+                "dusklobber",
+                "applemortar"
+            ],
+            "ListType": "whitelist"
+        },
+        "DamageWhileSubmergedPlantfoodOnly": {
+            "List": [
+                "bowlingbulb",
+                "ghostpepper",
+                "homingthistle",
+                "chomper",
+                "fumeshroom",
+                "snapdragon",
+                "coconutcannon",
+                "bloomerang",
+                "spikeweed",
+                "spikerock",
+                "guacodile",
+                "laser_bean",
+                "firepeashooter",
+                "lavaguava",
+                "toadstool",
+                "cabbagepult",
+                "akee",
+                "melonpult",
+                "kernelpult",
+                "wintermelon",
+                "banana",
+                "homingthistle",
+                "sapfling",
+                "pepperpult",
+                "sporeshroom",
+                "shrinkingviolet",
+                "applemortar"
+            ],
+            "ListType": "whitelist"
+        },
+        "EatDPS": 200,
+        "GroundTrackName": "ground_swatch",
+        "HitRect": {
+            "mHeight": 105,
+            "mWidth": 32,
+            "mX": 10,
+            "mY": 10
+        },
+        "Hitpoints": 400,
+        "ScaledProps": [
+            {
+                "Arg1": 1.3,
+                "Arg2": 0.05,
+                "Formula": "standard",
+                "Key": "Hitpoints"
+            },
+            {
+                "Arg1": 1.3,
+                "Arg2": 0.05,
+                "Formula": "standard",
+                "Key": "EatDPS"
+            },
+            {
+                "Formula": "constant",
+                "Key": "Speed"
+            },
+            {
+                "Formula": "constant",
+                "Key": "WavePointCost"
+            }
+        ],
+        "ShadowOffset": {
+            "x": 5,
+            "y": 0,
+            "z": 1.4
+        },
+        "Speed": 2,  
+        "TargetByWhitelist": {
+            "List": [
+                "ghostpepper",
+                "homingthistle",
+                "jalapeno",
+                "cherry_bomb",
+                "squash",
+                "iceburg",
+                "lavaguava",
+                "strawburst",
+                "electricblueberry",
+                "grapeshot",
+                "cabbagepult",
+                "akee",
+                "melonpult",
+                "kernelpult",
+                "wintermelon",
+                "banana",
+                "homingthistle",
+                "sapfling",
+                "pepperpult",
+                "sporeshroom",
+                "shrinkingviolet",
+                "bloominghearts",
+                "dusklobber",
+                "applemortar"
+            ],
+            "ListType": "whitelist"
+        },
+        "WavePointCost": 200,
+        "Weight": 3000,
+        "ZombieStats": [
+            {
+                "Type": "toughness",
+                "Value": "toughness3"
+            },
+            {
+                "Type": "speed",
+                "Value": "speed2"
+            }
+        ]
+    }
+},
+{
+                        "aliases": [
+                                "ZombiePharaohDefault"
+                        ],
+                        "objclass": "ZombieSarcophagusProps",
+                        "objdata": {
+                                "ArtCenter": {
+                                        "x": 90,
+                                        "y": 125
+                                },
+                                "AttackRect": {
+                                        "mHeight": 125,
+                                        "mWidth": 20,
+                                        "mX": -10,
+                                        "mY": 0
+                                },
+                                "CanSpawnPlantFood": true,
+                                "Cost": 150,
+                                "EatDPS": 1000,
+                                "GroundTrackName": "ground_swatch",
+                                "HitRect": {
+                                        "mHeight": 125,
+                                        "mWidth": 32,
+                                        "mX": -15,
+                                        "mY": 10
+                                },
+                                "Hitpoints": 4000,
+                                "RunSpeed": 1,
+                                "ScaledProps": [
+                                        {
+                                                "Arg1": 1,
+                                                "Arg2": 0.05,
+                                                "Formula": "standard",
+                                                "Key": "Hitpoints"
+                                        },
+                                        {
+                                                "Arg1": 1.6,
+                                                "Arg2": 1.5,
+                                                "Formula": "standard",
+                                                "Key": "EatDPS"
+                                        },
+                                        {
+                                                "Formula": "constant",
+                                                "Key": "Speed"
+                                        },
+                                        {
+                                                "Formula": "constant",
+                                                "Key": "WavePointCost"
+                                        }
+                                ],
+                                "ShadowOffset": {
+                                        "x": 5,
+                                        "y": 0,
+                                        "z": 1.4
+                                },
+                                "Speed": 0.0985,
+                                "WavePointCost": 450,
+                                "Weight": 3000,
+                                "ZombieArmorProps": [
+                                        "RTID(SarcophagusDefault@ArmorTypes)"
+                                ],
+                                "ZombieStats": [
+                                        {
+                                                "Type": "toughness",
+                                                "Value": "toughness5"
+                                        },
+                                        {
+                                                "Type": "speed",
+                                                "Value": "speed2"
+                                        }
+                                ]
+                        }
+                },
+        {}
+    ],
+    "version": 1
+}
