@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A website recreating the experience of the Botanic Backyard, featuring Plants vs Zombies 2 Reflourished and AltverZ levels.">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/x-icon" href="iconesummer.png">
+  <title>When Levels Flourish - Hall of Fame</title>
+  <style>
+    /* General Styles */
+    body {
+        background: url('bgA.png') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        font-family: 'PvZ2Regular', sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        flex-direction: column;
+        position: relative;
+    }
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-weight: 300;
+        color: #ffffff;
+    }
+
+    /* Big Box Styles */
+    .big-box {
+        background-color: #4a8eff; /* Blue background */
+        padding: 20px;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 1200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 20px;
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+        border: 10px solid rgba(0, 0, 0, 0.7);
+    }
+
+    .big-box::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        bottom: -10px;
+        left: -10px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+        z-index: -1;
+    }
+
+    .big-box::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        left: -2px;
+        background: linear-gradient(225deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+        border-radius: 15px;
+        z-index: -1;
+    }
+
+    /* Grid Container Styles */
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Grid Item Styles */
+    .grid-item {
+        background-color: #ffffff; /* Default white background */
+        color: #4a8eff; /* Blue text color */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .grid-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .grid-item h2 {
+        margin-bottom: 30px;
+        font-size: 1.5rem; /* Larger font size for Congratulations */
+    }
+
+    .grid-item p {
+        color: #333333; /* Dark text color */
+    }
+
+    .grid-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* Background Colors Based on Jam */
+    .jam-blue {
+        background-color: #4a8eff; /* Blue background */
+    }
+
+    .jam-red {
+        background-color: #ff4a4a; /* Red background */
+    }
+
+    .jam-green {
+        background-color: #4eff6c; /* Green background */
+    }
+
+    /* Navigation Styles */
+    nav {
+        margin-top: 20px;
+    }
+
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <a href="index.html">Main</a>
+    <a href="ref.html">Reflourished Levels</a>
+    <a href="alt.html">AltverZ Levels</a>
+    <a href="new.html">Post a Level / pack</a>
+    <a href="Fame.html" id="new">The Hall of Fame</a>
+  </nav>
+  
+  <div class="hall-of-fame">
+    <div class="big-box">
+        <h1>When Levels Flourish - Hall of Fame</h1>
+        <audio id="audioPlayer" autoplay loop>
+            Your browser does not support the audio element.
+        </audio>
+        <div class="grid-container" id="winner-container">
+            <!-- Winners will be dynamically added here as grid items -->
+        </div>
+    </div>
+  </div>
+
+  <script>
+      // Simulating loading winner data from a JSON file
+      fetch('winner.json')
+          .then(response => response.json())
+          .then(data => {
+              const winnerContainer = document.getElementById('winner-container');
+              
+              // Loop through each winner's data
+              data.winners.forEach(winner => {
+                  // Create a grid item for each winner
+                  const gridItem = document.createElement('div');
+                  gridItem.classList.add('grid-item');
+
+                  // Determine background color based on winner.jam
+                  if (winner.jam === 'blue') {
+                      gridItem.classList.add('jam-blue');
+                  } else if (winner.jam === 'red') {
+                      gridItem.classList.add('jam-red');
+                  } else if (winner.jam === 'green') {
+                      gridItem.classList.add('jam-green');
+                  }
+
+                  // Construct image path dynamically
+                  const imagePath = `./images/${winner.jam}.webp`;
+
+                  // Populate the grid item with winner's information and image
+                  gridItem.innerHTML = `
+                      <h2>Congratulations!</h2>
+                      <img src="${imagePath}" alt="${winner.title}" />
+                      <p class="winner">${winner.title} ${winner.user} won the ${winner.jam} Challenge!</p>
+                  `;
+
+                  // Append the grid item to the winner container
+                  winnerContainer.appendChild(gridItem);
+              });
+          })
+          .catch(error => {
+              console.error('Error fetching winners:', error);
+              const winnerContainer = document.getElementById('winner-container');
+              winnerContainer.innerHTML = '<p>Error loading winner information.</p>';
+          });
+  </script>
+</body>
+</html>

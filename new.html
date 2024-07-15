@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create custom level JSON for When Levels Flourish">
+    <meta name="author" content="Samine Gamme - Slimmy Sinisty and company">
+    <meta name="keywords" content="custom levels, game development, JSON generator">
+
+    <!-- Open Graph (OG) meta tags -->
+    <meta property="og:title" content="When Levels Flourish">
+    <meta property="og:description" content="Create custom level JSON for When Levels Flourish">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="icone.png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+
+    <link rel="icon" type="image/x-icon" href="icone.png">
+    <title>When Levels Flourish</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Prism.js CSS for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+
+    <style>
+        /* Custom CSS for black background */
+        .json-container {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow-x: auto; /* Allow horizontal scroll if needed */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="new.html" id="new">Post a Level / pack</a>
+        <a href="index.html">Main</a>
+        <a href="ref.html" id="ref">Reflourished Levels</a>
+        <a href="alt.html">AltverZ Levels</a>
+    </nav>
+    
+    <br><img src="icone.png" height="300px" width="300px"/>
+    <br><br>
+    <div class="box">
+        <h1>Custom Level JSON Generator</h1>
+        <form id="levelForm">
+            <label for="imgSrc">Image Source:</label><br>
+            <input type="text" id="imgSrc" placeholder="Google Drive link, regular link, or file path"><br>
+            <label for="downloadLink">Download Link:</label><br>
+            <input type="text" id="downloadLink" placeholder="Google Drive link or regular link"><br>
+            <label for="creatorName">Creator's Name:</label><br>
+            <input type="text" id="creatorName" placeholder="Creator's Name"><br>
+            <label for="levelName">Level Name:</label><br>
+            <input type="text" id="levelName" placeholder="Level Name"><br>
+            <label for="levelDescription">Level Description:</label><br>
+            <textarea id="levelDescription" placeholder="Level Description"></textarea><br>
+            <label for="mode">Mode:</label><br>
+            <select id="mode">
+                <option value="R">Reflourished</option>
+                <option value="A">AltverZ</option>
+            </select><br>
+            <button type="button" onclick="generateJson()">Generate JSON</button>
+        </form>
+        <div class="json-container">
+            <pre><code id="jsonOutput" class="language-json">Generated JSON will appear here</code></pre>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+    <footer>
+        <p>&copy; 2024 Samine Gamme - Slimmy Sinisty and company</p>
+        <p>
+            <a href="mailto:slimmysinisty@gmail.com">Contact</a> |
+            <a href="https://www.youtube.com/channel/UCrUknMgIGaPBufJ7oTsSnUA" target="_blank">Youtube Samine</a> |
+            <a href="https://www.youtube.com/watch?v=Wma1qgqL1yI&t=44s" target="_blank">How to make Your own level</a> |
+            <a href="https://docs.google.com/spreadsheets/d/1OeY3FcGfOSOCO6voz6VolK0lfSCX9ytsXbCdihECrk0/edit#gid=0" target="_blank">ELM</a> |
+            <a href="https://osamah2004.github.io/Pvz2Randomizer/" target="_blank">a zombie maker and a level randomizer by osamah_o </a>
+        </p>
+    </footer>
+    
+    <audio id="audioPlayer" autoplay loop>
+        <source src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+      const musicFiles = [
+          { src: 'music/menuA.mp3', weight: 1 },
+          { src: 'music/menuB.mp3', weight: 2 },
+          { src: 'music/menuC.mp3', weight: 2 },
+          { src: 'music/A.mp3', weight: 1 }
+      ];
+  
+      function getRandomWeightedSong() {
+          const totalWeight = musicFiles.reduce((sum, song) => sum + song.weight, 0);
+          let random = Math.random() * totalWeight;
+          for (let i = 0; i < musicFiles.length; i++) {
+              if (random < musicFiles[i].weight) {
+                  return musicFiles[i].src;
+              }
+              random -= musicFiles[i].weight;
+          }
+      }
+  
+      function playRandomMusic() {
+          const randomMusic = getRandomWeightedSong();
+          const audioPlayer = document.getElementById('audioPlayer');
+          audioPlayer.src = randomMusic;
+          audioPlayer.play();
+      }
+  
+      function getRandomBackground() {
+          const backgrounds = ['bgA.png', 'bgB.png', 'bgC.png', 'bgD.png', 'bgF.png', 'bgG.png','banner.png'];
+          const randomIndex = Math.floor(Math.random() * backgrounds.length);
+          return backgrounds[randomIndex];
+      }
+  
+      function setRandomBackground() {
+          const selectedBackground = getRandomBackground();
+          document.body.style.backgroundImage = `url('${selectedBackground}')`;
+      }
+  
+      document.addEventListener('DOMContentLoaded', function () {
+          setRandomBackground();
+          playRandomMusic();
+      });
+  
+      function transformToDownloadLink(driveLink) {
+          const match = driveLink.match(/\/d\/([a-zA-Z0-9_-]+)/);
+          return match ? `https://drive.google.com/uc?export=download&id=${match[1]}` : null;
+      }
+  
+      function transformToImageLink(driveLink) {
+          const match = driveLink.match(/\/d\/([a-zA-Z0-9_-]+)/);
+          return match ? `https://drive.google.com/thumbnail?id=${match[1]}` : null;
+      }
+  
+      function generateJson() {
+          const imgSrcInput = document.getElementById('imgSrc').value;
+          const downloadLinkInput = document.getElementById('downloadLink').value;
+          const creatorName = document.getElementById('creatorName').value;
+          const levelName = document.getElementById('levelName').value;
+          const levelDescription = document.getElementById('levelDescription').value;
+          let modeAbbr = document.getElementById('mode').value.toUpperCase();
+  
+          const formData = {
+              id: "A14",  // Example ID, replace with actual ID generation logic if needed
+              category: modeAbbr === 'R' ? "Reflourished" : "AltverZ",
+              title: levelName,
+              description: levelDescription,
+              author: creatorName,
+              image: transformToImageLink(imgSrcInput),
+              downloadLink: transformToDownloadLink(downloadLinkInput)
+          };
+  
+          const jsonOutput = JSON.stringify(formData, null, 4);  // JSON stringify with pretty print
+  
+          document.getElementById('jsonOutput').textContent = jsonOutput;
+      }
+    </script>
+
+    <!-- Prism.js for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-json.min.js"></script>
+
+</body>
+</html>

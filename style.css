@@ -1,0 +1,404 @@
+/* Fonts */
+@font-face {
+  font-family: 'PvZ2Regular';
+  src: url('Font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* General Styles */
+body {
+  background: url('bgA.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  font-family: 'PvZ2Regular', sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+/* Full Screen Loading Screen */
+#loading-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s;
+}
+
+#loading-gif {
+  image-rendering: pixelated;
+  width: 64px;
+  height: 64px;
+}
+
+#main,
+nav,
+footer,
+h1 {
+  display: none;
+}
+
+/* Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Boxes */
+.box, .info-box {
+  background-color: #a86e42;
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  color: #ffffff;
+  position: relative;
+}
+
+.box::before, .info-box::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.box::after, .info-box::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  background: linear-gradient(225deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  border-radius: 15px;
+  z-index: -1;
+}
+
+/* Input Fields */
+input[type="text"],
+textarea,
+#mode {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #5a4100;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'PvZ2Regular', sans-serif;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+#mode:focus {
+  border-color: #312300;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+label {
+  font-family: 'PvZ2Regular', sans-serif;
+  color: #312300;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#htmlCode label {
+  color: #fff;
+  font-weight: bold;
+}
+
+#htmlCode textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 5px solid rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+footer p {
+  margin: 10px 0;
+  font-size: 1em;
+  color: rgb(245, 245, 245);
+  font-family: 'PvZ2Regular', sans-serif;
+}
+
+footer a {
+  color: whitesmoke;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.2s;
+}
+
+footer a:hover {
+  color: #7453c5;
+  transform: translateY(-2px);
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(55, 40, 95, 0.25);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+footer::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 110%;
+  height: 110%;
+  background: linear-gradient(225deg, rgba(37, 76, 37, 0.25), rgba(41, 47, 59, 0.25));
+  border-radius: 5px;
+  transform: translateX(-50%);
+  z-index: -2;
+}
+
+/* Buttons */
+button[type="button"],
+.download-button,
+.resume-button,
+.info-button,
+nav a,
+#new {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'PvZ2Regular', sans-serif;
+  color: whitesmoke;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  text-shadow: 1px 1px #000000;
+  border: 3px solid white;
+  margin-right: 10px;
+}
+
+/* Define default button styles */
+button[type="button"],
+.download-button,
+.resume-button,
+.info-button {
+  background: linear-gradient(to top, #493464, #7453c5);
+  /* Default gradient */
+  color: white; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  text-shadow: 1px 1px #000000;
+}
+
+/* Define hover styles */
+button[type="button"]:hover,
+.download-button:hover,
+.resume-button:hover,
+.info-button:hover,
+nav a:hover,
+#new:hover {
+  background: #7453c5; /* Default hover color */
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.download-button,
+.resume-button {
+  background: linear-gradient(to top, #493464, #7453c5);
+  margin: 20px 10px;
+}
+
+.info-button {
+  background: linear-gradient(to top, #53311c, #c38047);
+  margin: 20px 10px;
+}
+
+nav a {
+  background: linear-gradient(to top, #493464, #7453c5);
+}
+
+#new {
+  background: linear-gradient(to top, #346434, #77c553);
+  margin-right: 10px;
+}
+
+/* Grid Items */
+.grid-item {
+  color: #312300;
+  background-color: #e2dabd;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.grid-item p {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #332400;
+}
+
+.grid-item iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border: none;
+  border-radius: 10px;
+}
+
+#centered-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#centered-grid-item p {
+  margin-bottom: 20px;
+}
+
+/* Grid Item Image */
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(225deg, #493464, #7453c5);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7453c5;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  body {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .box, .info-box {
+    width: 100%;
+    padding: 15px;
+    margin: 10px;
+  }
+
+  button[type="button"],
+  .download-button,
+  .resume-button,
+  .info-button,
+  nav a {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  textarea,
+  #mode {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+/* Navigation bar */
+nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+  z-index: 10; /* Ensure it's above other elements */
+  background: rgba(0, 0, 0, 0.5); /* Slightly transparent background to make it stand out */
+  padding: 10px; /* Padding around the nav items */
+  border-radius: 5px; /* Rounded corners */
+}
+
+nav a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'PvZ2Regular', sans-serif;
+  color: whitesmoke;
+  background: linear-gradient
+}

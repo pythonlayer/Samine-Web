@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A website recreating the experience of the Botanic Backyard, featuring Plants vs Zombies 2 Reflourished and AltverZ levels.">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/x-icon" href="iconesummer.png">
+  <title>When Levels Flourish</title>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <img id="loading-gif" src="" alt="Loading...">
+  </div>
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWSWTDSP"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <!-- Main title -->
+  
+  
+  <br><br><br>
+  <nav>
+    <a href="index.html">Main</a>
+    <a href="ref.html" id="ref">Reflourished Levels</a>
+    <a href="alt.html">AltverZ Levels</a>
+    <a href="new.html" id="new">Post a Level / pack</a>
+    <a href="Fame.html" id="new" target="_blank">The hall of fame</a>
+  </nav>
+  <br><br><br>
+  <img src="iconesummer.png" height="300px" width="300px" alt="Icone du site"/>
+  <div id="main" class="box">
+    <h1>When Levels Flourish</h1>
+    <audio id="audioPlayer" autoplay loop>
+      Your browser does not support the audio element.
+    </audio>
+    <div class="grid-item" id="centered-grid-item">
+      <p>
+        This website was created by <strong>@samine000</strong> to recreate the experience of the now-gone but not forgotten <em>Botanic Backyard</em>.
+        <br>
+        Please refer to <strong>@samine000</strong> on Discord for more information about the community and enjoy playing these levels.
+        <br>
+        Welcome to the new Summer Nights Level Jam! Submit your level or level pack and have a chance to have your name carved in the Hall of Fame and your level featured on the main page!
+        <br>
+        Please go to <a href="new.html">Post your level/pack using this form!</a>
+    </p>
+    </div><br>
+    <div class="grid-item" id="centered-grid-item">
+      <img src="rules.png"  width="500" alt="Icone du site"/>
+    </div><br>
+    <div class="grid-item" id="centered-grid-item">
+      <p>Install Plants Vs Zombies 2 Reflourished, the DLC for Plants vs Zombies we all needed.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/fvd7HTI02h4?si=q8NWZ86NTftZQd9l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
+    </div><br>
+    <div class="grid-item" id="centered-grid-item">
+      <p>Or choose Plants vs Zombies 2 AltverZ, what Plants vs Zombies could have been in an alternate universe.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/rO872mMLNBU?si=yvz8WsaGLo9xqjGG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
+    </div><br>
+    <div class="grid-item" id="centered-grid-item">
+      <p>If the tutorial doesn't work, use this and follow the tutorial.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/e1GIAtT5USw?si=uLketuI_oVgJ-c1R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <footer>
+    <p>&copy; 2024 Samine Gamme - Slimmy Sinisty and company</p>
+    <p>
+      <a href="mailto:slimmysinisty@gmail.com">Contact</a> |
+    </p>
+    <p>
+      <a href="https://www.youtube.com/channel/UCrUknMgIGaPBufJ7oTsSnUA" target="_blank">Youtube Samine</a> |
+      <a href="https://www.youtube.com/watch?v=Wma1qgqL1yI&t=44s" target="_blank">How to make You're own level</a> |
+      <a href="https://docs.google.com/spreadsheets/d/1OeY3FcGfOSOCO6voz6VolK0lfSCX9ytsXbCdihECrk0/edit#gid=0" target="_blank">ELM</a> |
+      <a href="https://osamah2004.github.io/Pvz2Randomizer/" target="_blank">a zombie maker and a level randomizer by osamah_o </a>
+    </p>
+  </footer>
+
+  <script>
+    const musicFiles = [
+      {src: 'music/menuA.mp3', weight: 1},
+      {src: 'music/menuB.mp3', weight: 2},
+      {src: 'music/menuC.mp3', weight: 2},
+      {src: 'music/SummerA.mp3', weight: 5},
+      {src: 'music/SummerB.mp3', weight: 5},
+      {src: 'music/A.mp3', weight: 1}
+    ];
+
+    const loadingGifs = ['loadA.gif', 'loadB.gif', 'loadC.gif'];
+
+    function getRandomWeightedSong() {
+      const totalWeight = musicFiles.reduce((sum, song) => sum + song.weight, 0);
+      let random = Math.random() * totalWeight;
+      for (let i = 0; i < musicFiles.length; i++) {
+        if (random < musicFiles[i].weight) {
+          return musicFiles[i].src;
+        }
+        random -= musicFiles[i].weight;
+      }
+    }
+
+    function getRandomLoadingGif() {
+      const randomIndex = Math.floor(Math.random() * loadingGifs.length);
+      return loadingGifs[randomIndex];
+    }
+
+    function playRandomMusic() {
+      const randomMusic = getRandomWeightedSong();
+      const audioPlayer = document.getElementById('audioPlayer');
+      audioPlayer.src = randomMusic;
+      audioPlayer.play();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set a random background
+      const backgrounds = ['bgA.png', 'bgB.png', 'bgC.png', 'bgD.png', 'bgF.png', 'bgG.png','banner.png'];
+      const randomIndex = Math.floor(Math.random() * backgrounds.length);
+      const selectedBackground = backgrounds[randomIndex];
+      document.body.style.backgroundImage = `url('${selectedBackground}')`;
+
+      // Set a random loading gif
+      const randomGif = getRandomLoadingGif();
+      document.getElementById('loading-gif').src = randomGif;
+    });
+
+    window.addEventListener('load', function() {
+      const loadingScreen = document.getElementById('loading-screen');
+      loadingScreen.style.transition = 'opacity 1s';
+      loadingScreen.style.opacity = 0;
+      setTimeout(() => loadingScreen.style.display = 'none', 1000);
+
+      document.querySelector('nav').style.display = 'block';
+      document.querySelector('footer').style.display = 'block';
+      document.querySelector('h1').style.display = 'block';
+      document.getElementById('main').style.display = 'block';
+      playRandomMusic();
+    });
+  </script>
+</body>
+</html>
